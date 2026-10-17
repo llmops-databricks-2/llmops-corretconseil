@@ -1,3 +1,8 @@
 """Arxiv Curator - Shared utilities for LLMOps Course on Databricks"""
 
-__version__ = "0.1.0"
+from importlib.metadata import PackageNotFoundError, version
+
+try:
+    __version__ = version("arxiv-curator")  # must match `name` in pyproject.toml
+except PackageNotFoundError:  # running from source without the package installed
+    __version__ = "unknown"
