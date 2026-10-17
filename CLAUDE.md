@@ -31,8 +31,10 @@ Example: the files `pyproject.toml` or `project_config.yml` will be updates on t
 teacher's repo as the classes progress. Some new Databricks notebooks will be added.
 Some new Python modules and tests will pop up on the teacher's repo.
 
-Note: the README.md file will always be different between each repo, this is expected and
+Items which do not need syncing:
+- The README.md file will always be different between each repo, this is expected and
 should not be on the list of files to update.
+- The folders `lecture_materials/`, `presentation_pre/` and `presentations`.
 
 Each week the student repo and the teacher's repo will work on a new branch. Examples:
 - Week 1: student branch name = 'week1', teachers branch name = lecture1
