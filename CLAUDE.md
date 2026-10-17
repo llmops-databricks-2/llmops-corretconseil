@@ -32,8 +32,8 @@ teacher's repo as the classes progress. Some new Databricks notebooks will be ad
 Some new Python modules and tests will pop up on the teacher's repo.
 
 Each week the student repo and the teacher's repo will work on a new branch. Examples:
-- Week 1: branch name = 'week1'
-- Week 2: branch name = 'week2'
+- Week 1: student branch name = 'week1', teachers branch name = lecture1
+- Week 2: branch name = 'week2', teachers branch name = lecture2
 - ... and so on
 
 ## Developing and testing work
