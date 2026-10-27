@@ -15,16 +15,10 @@ resources:
               - ../dist/*.whl
 
       tasks:
-        - task_key: arxiv_data_ingestion
-          environment_key: default
-          notebook_task:
-            notebook_path: ../notebooks/1.3_arxiv_data_ingestion.py
-            base_parameters:
-              env: "${bundle.target}"
-
+        # DataProcessor.process_and_save() downloads the papers itself and owns the arxiv_papers
+        # schema. The lecture 1.3 notebook writes the same table with another schema, so it is
+        # not a task of this job.
         - task_key: pdf_parsing_ai_parse
-          depends_on:
-            - task_key: arxiv_data_ingestion
           environment_key: default
           notebook_task:
             notebook_path: ../notebooks/2.2_pdf_parsing_ai_parse.py
