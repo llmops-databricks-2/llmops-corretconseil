@@ -31,20 +31,16 @@ variables:
     default: da4486a7-e7ae-3f75-842d-94f515c7aa51
 
 include:
-  - resources/*.yml
+  - resources/process_data.yml
+  - resources/ai_search.yml
+  - resources/synced_tables.yml
 
 sync:
   include:
-    # - eval_inputs.txt
+    - eval_inputs.txt
     - project_config.yml
 
-# Three targets in the one course workspace, each writing your schema in its own catalog
-# (project_config.yml). Each is deployed under the home folder of whoever deploys it: you from your
-# laptop. A deployment workflow is introduced in a later lecture. The workspace host is
-# set, so `databricks bundle validate -t dev` needs no profile to find it.
 targets:
-  # Your sandbox. Development mode prefixes every resource with "[dev" and the deployer's name,
-  # so your own deploy and the pipeline's never collide.
   dev:
     default: true
     mode: development
