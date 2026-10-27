@@ -20,7 +20,7 @@ dev:
   warehouse_id: "99a0cb32b5273deb"
   experiment_path: "/llmops/corretconseil-dev"
   # Your provisioned Lakebase project.
-  lakebase_project_id: lb-llmops-dev
+  lakebase_project_id: lb-llmops-corretconseil
 
 # Acceptance: your schema in the acceptance catalog, written by your deploys; you read it.
 acc:
@@ -35,7 +35,7 @@ acc:
   warehouse_id: "99a0cb32b5273deb"
   experiment_path: "/llmops/corretconseil-acc"
   # Your provisioned Lakebase project for this environment.
-  lakebase_project_id: lb-llmops-acc
+  lakebase_project_id: lb-llmops-corretconseil
 
 # Production: your schema in the production catalog, written by your deploys; you read it.
 prd:
@@ -50,7 +50,7 @@ prd:
   warehouse_id: "99a0cb32b5273deb"
   experiment_path: "/llmops/corretconseil-prd"
   # Your provisioned Lakebase project for this environment.
-  lakebase_project_id: lb-llmops-prd
+  lakebase_project_id: lb-llmops-corretconseil
 
 # Model configuration
 model_config:
