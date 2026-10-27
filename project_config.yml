@@ -13,11 +13,14 @@ dev:
   schema: "corretconseil"
   volume: "arxiv_files"
   llm_endpoint: "course_ops.gateway.chat"
-  embedding_endpoint: "course_ops.gateway.embed"
+  # course_ops.gateway.embed can't be used: ai_query doesn't support custom Unity Gateway model
+  # services yet (https://docs.databricks.com/aws/en/ai-gateway/query-model-services#limitations)
+  # embedding_endpoint: course_ops.gateway.embed
+  embedding_endpoint: databricks-gte-large-en
   warehouse_id: "99a0cb32b5273deb"
   experiment_path: "/llmops/corretconseil-dev"
   # Your provisioned Lakebase project.
-  lakebase_instance: "lb-llmops-corretconseil"
+  lakebase_project_id: lb-llmops-dev
 
 # Acceptance: your schema in the acceptance catalog, written by your deploys; you read it.
 acc:
@@ -25,11 +28,14 @@ acc:
   schema: "corretconseil"
   volume: "arxiv_files"
   llm_endpoint: "course_ops.gateway.chat"
-  embedding_endpoint: "course_ops.gateway.embed"
+  # course_ops.gateway.embed can't be used: ai_query doesn't support custom Unity Gateway model
+  # services yet (https://docs.databricks.com/aws/en/ai-gateway/query-model-services#limitations)
+  # embedding_endpoint: course_ops.gateway.embed
+  embedding_endpoint: databricks-gte-large-en
   warehouse_id: "99a0cb32b5273deb"
   experiment_path: "/llmops/corretconseil-acc"
   # Your provisioned Lakebase project for this environment.
-  lakebase_instance: "lb-llmops-corretconseil"
+  lakebase_project_id: lb-llmops-acc
 
 # Production: your schema in the production catalog, written by your deploys; you read it.
 prd:
@@ -37,11 +43,14 @@ prd:
   schema: "corretconseil"
   volume: "arxiv_files"
   llm_endpoint: "course_ops.gateway.chat"
-  embedding_endpoint: "course_ops.gateway.embed"
+  # course_ops.gateway.embed can't be used: ai_query doesn't support custom Unity Gateway model
+  # services yet (https://docs.databricks.com/aws/en/ai-gateway/query-model-services#limitations)
+  # embedding_endpoint: course_ops.gateway.embed
+  embedding_endpoint: databricks-gte-large-en
   warehouse_id: "99a0cb32b5273deb"
   experiment_path: "/llmops/corretconseil-prd"
   # Your provisioned Lakebase project for this environment.
-  lakebase_instance: "lb-llmops-corretconseil"
+  lakebase_project_id: lb-llmops-prd
 
 # Model configuration
 model_config:
