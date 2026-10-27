@@ -1,0 +1,8 @@
+resources:
+  volumes:
+    arxiv_files:
+      catalog_name: ${var.catalog}
+      schema_name: corretconseil # schema in project_config.yml
+      name: arxiv_files # volume in project_config.yml
+      volume_type: MANAGED
+      comment: "arXiv PDF files for the arxiv-curator project"

@@ -21,19 +21,25 @@ dependencies = [
     "nest-asyncio==1.6.0",
     "arxiv==2.3.1",
     "databricks-agents==1.12.0",
+    "fastapi==0.128.0",
+    "uvicorn==0.40.0",
     "psycopg==3.3.2",
     "psycopg-pool==3.3.0",
     "psycopg[binary]==3.3.2"
 ]
 
 [project.optional-dependencies]
-dev = ["pre-commit>=4.1.0, <5"]
+dev = [
+       "ipykernel>=6.29.5, <7",
+       "pip>=25.0.1, <26",
+       "pre-commit>=4.1.0, <5"]
 
 ci = ["pre-commit>=4.1.0, <5",
       "pytest>=8.3.4, <9"]
 
 [build-system]
-requires = ["setuptools>=72.0"]
+requires = [
+  "setuptools>=72.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
@@ -49,37 +55,30 @@ testpaths = ["tests"]
 pythonpath = ["."]
 
 [tool.ruff]
-line-length = 120
+line-length = 100
 target-version = "py312"
-lint.select = [
+
+[tool.ruff.lint]
+select = [
     "F",    # pyflakes rules
     "E",    # pycodestyle error rules
     "W",    # pycodestyle warning rules
-    "B",    # flake8-bugbear rules
     "I",    # isort rules
-    "UP",   # pyupgrade rules
-    "SIM",  # flake8-simplify rules
-    "ERA",  # eradicate rules
-    "C",    # pylint convention rules
-    "D",    # pydocstyle rules
-    "ANN"   # flake8-annotations rules
 ]
-lint.ignore = [
-    "D107", # Missing docstring in `__init__`
-    "D203", # incorrect-blank-line-before-class
-    "D213", # multi-line-summary-second-line
-    "E501", # line-too-long
-    "C901", # too complex
+
+ignore = [
+    "E402",   # Module level import not at top of file (needed for Databricks notebooks)
+    "E501",   # Line too long (handled by formatter)
+    "ANN",    # Type annotations (too strict for this project)
 ]
 
 [tool.ruff.format]
 indent-style = "space"
-docstring-code-format = true
+
+[tool.databricks.environment]
+environment_version = "5"
 
 [dependency-groups]
 dev = [
     "databricks-connect~=18.0.0",
 ]
-
-[tool.databricks.environment]
-environment_version = "6"
