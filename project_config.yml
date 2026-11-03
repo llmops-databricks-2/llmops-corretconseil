@@ -1,57 +1,40 @@
-# Project configuration for the LLMOps course, filled in for you at onboarding.
-# Resources are provisioned at onboarding except the volume, which you create during the course.
-# embedding_endpoint is the serving endpoint for ai_query, AI Search and DatabricksServingEndpoint;
-# embedding_service is the AI Gateway model service for the OpenAI client (README.md).
-
-# Your usage policy: set it on every serverless job, endpoint and app you create.
+# Project Configuration for LLMOps Course
 usage_policy_id: "da4486a7-e7ae-3f75-842d-94f515c7aa51"
 
 # Lakebase projects may be shared across environments; Unity Catalog
 # schemas remain separate. Your cohort provisions the Lakebase values below.
 
-# Development: your own schema in the dev catalog, which you manage and work in.
+# Development environment
 dev:
   catalog: "llmops_dev"
   schema: "corretconseil"
   volume: "arxiv_files"
   llm_endpoint: "course_ops.gateway.chat"
-  # course_ops.gateway.embed can't be used: ai_query doesn't support custom Unity Gateway model
-  # services yet (https://docs.databricks.com/aws/en/ai-gateway/query-model-services#limitations)
-  # embedding_endpoint: course_ops.gateway.embed
   embedding_endpoint: databricks-gte-large-en
   warehouse_id: "9a7b023debdafb64"
   experiment_path: "/llmops/corretconseil-dev"
-  # Your provisioned Lakebase project.
   lakebase_project_id: lb-llmops-corretconseil
 
-# Acceptance: your schema in the acceptance catalog, written by your deploys; you read it.
+# Acceptance/Staging environment
 acc:
   catalog: "llmops_acc"
   schema: "corretconseil"
   volume: "arxiv_files"
   llm_endpoint: "course_ops.gateway.chat"
-  # course_ops.gateway.embed can't be used: ai_query doesn't support custom Unity Gateway model
-  # services yet (https://docs.databricks.com/aws/en/ai-gateway/query-model-services#limitations)
-  # embedding_endpoint: course_ops.gateway.embed
   embedding_endpoint: databricks-gte-large-en
   warehouse_id: "9a7b023debdafb64"
   experiment_path: "/llmops/corretconseil-acc"
-  # Your provisioned Lakebase project for this environment.
   lakebase_project_id: lb-llmops-corretconseil
 
-# Production: your schema in the production catalog, written by your deploys; you read it.
+# Production environment
 prd:
   catalog: "llmops_prd"
   schema: "corretconseil"
   volume: "arxiv_files"
   llm_endpoint: "course_ops.gateway.chat"
-  # course_ops.gateway.embed can't be used: ai_query doesn't support custom Unity Gateway model
-  # services yet (https://docs.databricks.com/aws/en/ai-gateway/query-model-services#limitations)
-  # embedding_endpoint: course_ops.gateway.embed
   embedding_endpoint: databricks-gte-large-en
   warehouse_id: "9a7b023debdafb64"
   experiment_path: "/llmops/corretconseil-prd"
-  # Your provisioned Lakebase project for this environment.
   lakebase_project_id: lb-llmops-corretconseil
 
 # Model configuration
