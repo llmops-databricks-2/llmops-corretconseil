@@ -32,13 +32,13 @@ variables:
   # Keep these in sync with the per-environment values in project_config.yml.
   warehouse_id:
     description: SQL warehouse for the Genie space (warehouse_id in project_config.yml)
-    default: 9b96ea2aef8272f6
+    default: 9a7b023debdafb64
   catalog:
     description: Unity Catalog catalog (catalog in project_config.yml)
     default: llmops_dev
   schema:
     description: schema holding arxiv_papers (schema in project_config.yml)
-    default: arxiv
+    default: corretconseil
 
 include:
   - resources/process_data.yml
