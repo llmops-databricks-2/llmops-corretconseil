@@ -19,7 +19,7 @@ dev:
   # services yet (https://docs.databricks.com/aws/en/ai-gateway/query-model-services#limitations)
   # embedding_endpoint: course_ops.gateway.embed
   embedding_endpoint: databricks-gte-large-en
-  warehouse_id: "99a0cb32b5273deb"
+  warehouse_id: "9a7b023debdafb64"
   experiment_path: "/llmops/corretconseil-dev"
   # Your provisioned Lakebase project.
   lakebase_project_id: lb-llmops-corretconseil
@@ -34,7 +34,7 @@ acc:
   # services yet (https://docs.databricks.com/aws/en/ai-gateway/query-model-services#limitations)
   # embedding_endpoint: course_ops.gateway.embed
   embedding_endpoint: databricks-gte-large-en
-  warehouse_id: "99a0cb32b5273deb"
+  warehouse_id: "9a7b023debdafb64"
   experiment_path: "/llmops/corretconseil-acc"
   # Your provisioned Lakebase project for this environment.
   lakebase_project_id: lb-llmops-corretconseil
@@ -49,7 +49,7 @@ prd:
   # services yet (https://docs.databricks.com/aws/en/ai-gateway/query-model-services#limitations)
   # embedding_endpoint: course_ops.gateway.embed
   embedding_endpoint: databricks-gte-large-en
-  warehouse_id: "99a0cb32b5273deb"
+  warehouse_id: "9a7b023debdafb64"
   experiment_path: "/llmops/corretconseil-prd"
   # Your provisioned Lakebase project for this environment.
   lakebase_project_id: lb-llmops-corretconseil
