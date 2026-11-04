@@ -29,14 +29,23 @@ variables:
   usage_policy_id:
     description: usage policy id for serverless jobs (usage_policy_id in project_config.yml)
     default: da4486a7-e7ae-3f75-842d-94f515c7aa51
+  # Keep these in sync with the per-environment values in project_config.yml.
+  warehouse_id:
+    description: SQL warehouse for the Genie space (warehouse_id in project_config.yml)
+    default: 9a7b023debdafb64
   catalog:
-    description: Unity Catalog catalog of the target (catalog in project_config.yml)
+    description: Unity Catalog catalog (catalog in project_config.yml)
+    default: llmops_dev
+  schema:
+    description: schema holding arxiv_papers (schema in project_config.yml)
+    default: corretconseil
 
 include:
   - resources/process_data.yml
+  - resources/lecture3_tools.yml
   - resources/ai_search.yml
   - resources/synced_tables.yml
-  - resources/volumes.yml
+  - resources/genie_space.yml
 
 sync:
   include:
