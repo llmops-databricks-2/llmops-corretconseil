@@ -10,10 +10,11 @@ dev:
   schema: "corretconseil"
   volume: "arxiv_files"
   llm_endpoint: "course_ops.gateway.chat"
-  embedding_endpoint: databricks-gte-large-en
+  embedding_endpoint: course_ops.gateway.embed
   warehouse_id: "9a7b023debdafb64"
   experiment_path: "/llmops/corretconseil-dev"
   lakebase_project_id: lb-llmops-corretconseil
+  genie_space_id: 01f1d87b76601603b1300c8078189c69
 
 # Acceptance/Staging environment
 acc:
@@ -21,10 +22,11 @@ acc:
   schema: "corretconseil"
   volume: "arxiv_files"
   llm_endpoint: "course_ops.gateway.chat"
-  embedding_endpoint: databricks-gte-large-en
+  embedding_endpoint: course_ops.gateway.embed
   warehouse_id: "9a7b023debdafb64"
   experiment_path: "/llmops/corretconseil-acc"
   lakebase_project_id: lb-llmops-corretconseil
+  genie_space_id: 01f1d87b76601603b1300c8078189c69
 
 # Production environment
 prd:
@@ -32,10 +34,11 @@ prd:
   schema: "corretconseil"
   volume: "arxiv_files"
   llm_endpoint: "course_ops.gateway.chat"
-  embedding_endpoint: databricks-gte-large-en
+  embedding_endpoint: course_ops.gateway.embed
   warehouse_id: "9a7b023debdafb64"
   experiment_path: "/llmops/corretconseil-prd"
   lakebase_project_id: lb-llmops-corretconseil
+  genie_space_id: 01f1d87b76601603b1300c8078189c69
 
 # Model configuration
 model_config:
