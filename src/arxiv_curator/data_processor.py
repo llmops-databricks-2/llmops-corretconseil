@@ -42,6 +42,10 @@ class DataProcessor:
     - Saving chunks to Delta tables
     """
 
+    # Default look-back window (in days) for the initial arXiv ingestion when
+    # the arxiv_papers table does not exist yet or has no processed records.
+    lookback_days: int = 7
+
     def __init__(self, spark: SparkSession, config: ProjectConfig) -> None:
         """
         Initialize DataProcessor with Spark session and configuration.
@@ -66,7 +70,7 @@ class DataProcessor:
         """
         Get start time range for arxiv paper search.
         If arxiv_papers table exists, uses max(processed) as start.
-        Otherwise, uses 3 days ago as start.
+        Otherwise, uses lookback_days ago as start.
 
         Returns:
             start string in "YYYYMMDDHHMM" format
@@ -83,13 +87,21 @@ class DataProcessor:
                 start = str(max_processed)
                 logger.info(f"Found existing arxiv_papers table. Starting from: {start}")
             else:
-                start = time.strftime("%Y%m%d%H%M", time.gmtime(time.time() - 24 * 3600 * 3))
+                start = time.strftime(
+                    "%Y%m%d%H%M", time.gmtime(time.time() - 24 * 3600 * self.lookback_days)
+                )
                 logger.info(
-                    f"Table exists but no processed records. Starting from 3 days ago: {start}"
+                    f"Table exists but no processed records. "
+                    f"Starting from {self.lookback_days} days ago: {start}"
                 )
         else:
-            start = time.strftime("%Y%m%d%H%M", time.gmtime(time.time() - 24 * 3600 * 3))
-            logger.info(f"No existing arxiv_papers table. Starting from 3 days ago: {start}")
+            start = time.strftime(
+                "%Y%m%d%H%M", time.gmtime(time.time() - 24 * 3600 * self.lookback_days)
+            )
+            logger.info(
+                f"No existing arxiv_papers table. "
+                f"Starting from {self.lookback_days} days ago: {start}"
+            )
         return start
 
     def download_and_store_papers(
